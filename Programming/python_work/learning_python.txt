@@ -1,0 +1,4 @@
+In Python you can use loops
+In Python you can create different data types
+In Python you can define functions
+ 

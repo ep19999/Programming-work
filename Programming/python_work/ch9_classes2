@@ -1,0 +1,32 @@
+# #9-5 Login Attmepts
+# class User():
+#     def __init__(self, first_name, last_name, password, user_name, logins=0):
+#         self.first = first_name
+#         self.last = last_name
+#         self.passwd = password
+#         self.uname = user_name
+#         self.login_attempts = logins
+    
+#     def describe_user(self):
+#         print(f"{self.first} {self.last}, password: {self.passwd}, username: {self.uname}")
+
+#     def greet_user(self):
+#         print(f'Hello {self.first} have a great day!')
+
+#     def increment_login_attempts(self):
+#         self.login_attempts += 1
+    
+#     def reset_login_attempts(self):
+#         self.login_attempts = 0
+
+# user = User("John", "Steve", "ASDFghjk123", "bigJC")
+# user.describe_user()
+# print(user.login_attempts)
+
+# user.increment_login_attempts()
+# user.increment_login_attempts()
+# user.increment_login_attempts()
+
+# print(user.login_attempts)
+
+
