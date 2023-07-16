@@ -11,7 +11,7 @@ class Alien(Sprite):
         self.ai_settings = ai_settings
 
         # Load the alien image and set its rect attribute
-        self.image = pygame.image.load('images/alien.png')
+        self.image = pygame.image.load('learning-projects/python_work/alien_invasion_prjct/images/alien.png')
         #self.image2 = pygame.image.load('images/alien.png')
         #self.image3 = pygame.image.load('images/alien.png')
 

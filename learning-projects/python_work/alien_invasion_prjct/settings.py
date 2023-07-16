@@ -49,7 +49,7 @@ class Background():
     '''Class to customise the games background'''
 
     def __init__(self, location):
-        self.image = pygame.image.load('images/bg5.jpg')
+        self.image = pygame.image.load('learning-projects/python_work/alien_invasion_prjct/images/bg5.jpg')
         self.rect = self.image.get_rect()
         self.rect.left, self.rect.top = location
 
