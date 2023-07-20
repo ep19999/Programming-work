@@ -3,90 +3,176 @@
   <head>
     <title>Calculator</title>
     <style>
-      div {
-        width: 106px;
-        text-align: right;
-        border: 5px rgb(252, 7, 7);
-      }
+      .screen {
+        border: 10px solid silver;
+        }
       
+      .buttons {
+        width: 120px;
+        padding-right: 5px;
+        padding-top: 5px;
+        background-color: silver;
+        border: 10px solid silver;
+
+      }
       .minus {
         padding: 1px 7.5px
       }
       
-      .numbers {
-        float: left;
+      .equals {
+        width: 120px;
       }
     
     </style>
   </head>
   
   <body>
+    <div class="screen">
+      <input type="text" id="someInput" name="someInput" style="text-align: right;width: 120px"></input>
+    </div>
+    
+    <div class="buttons">
+      <p>
+        <button
+        onclick="inputNum('1');
+        "
+        >
+        1</button>
+        
+        <button
+        onclick="inputNum('2');
+        "
+        >
+        2</button>
+        
+        <button
+        onclick="inputNum('3');
+        "
+        >
+        3</button>
+        
+        <button onclick="resetScreen()
+        ">  
+        AC</button>
+        
+      </p>
 
-    <div>
-    screen
+      <p>
+        <button
+        onclick="inputNum('4');
+        "
+        >
+        4</button>
+        
+        <button
+        onclick="inputNum('5')
+        "
+        >
+        5</button>
+        
+        <button
+        onclick="inputNum('6');
+        "
+        >
+        6</button>
+        
+        <button
+        onclick="inputOperator('+');
+        "
+        >
+        +</button>
+      </p>
+
+      <p>
+        <button
+        onclick="inputNum(7);
+        "
+        >
+        7</button>
+        
+        <button
+        onclick="inputNum('8');
+        "
+        >
+        8</button>
+        
+        <button
+        onclick="inputNum('9');
+        "
+        >
+        9</button>
+        
+        <button class="minus"
+        onclick="inputOperator('-');
+        "
+        >
+        -</button>
+      </p>
+
+      <p>
+        <button
+        onclick="inputNum('0');
+        "
+        >
+        0</button>
+
+        <button onclick="inputOperator('*');
+        ">
+        x</button>
+
+        <button onclick="inputOperator('/')
+        ">
+        /</button>
+
+        <button style="width: 40px" onclick="retrieveAnswer()
+        ">
+        ANS</button>
+      </p>
+        
+      <p>
+        <button class="equals" onclick="calculate();
+        //resetScreen();
+        ">
+        =</button>
+      </p>
     </div>
 
-    <p>
-      <button
-      onclick="screen = parseInt(screen += '1');
-      console.log(screen);"
-      >
-      1</button>
-      
-      <button
-      onclick="screen = parseInt(screen += '2');
-      console.log(parseInt(screen));"
-      >
-      2</button>
-      
-      <button
-      onclick="screen = parseInt(screen += '3');
-      ">3</button>
-      
-      <button
-      onclick="screen = parseInt(screen += '+');
-      console.log(screen);
-      ">+</button>
-    </p>
-    <p>
-      <button
-      onclick="screen = parseInt(screen += '4');
-      ">4</button>
-      
-      <button
-      onclick="screen = parseInt(screen += '5');
-      ">5</button>
-      
-      <button
-      onclick="screen = parseInt(screen += '6');
-      ">6</button>
-      
-      <button class="minus"
-      onclick="screen = parseInt(screen += '-');
-      ">-</button>
-    </p>
-    <p>
-      <button
-      onclick="screen = parseInt(screen += '7');
-      ">7</button>
-      
-      <button
-      onclick="screen = parseInt(screen += '8');
-      ">8</button>
-      
-      <button
-      onclick="screen = parseInt(screen += '9');
-      ">9</button>
-      
-      <button
-      onclick="screen=eval(screen);
-      console.log(+screen);"
-      ">=</button>
-    </p>
-    
     <script>
-      let screen = '0';
+      let screen = '';
       console.log(screen);
+      
+      function inputNum(number) {
+        if (screen === (localStorage.getItem('value'))) {
+          resetScreen();
+          screen += number;
+        } else {
+            screen += number;
+        }
+        console.log(screen);
+        document.getElementById("someInput").value = screen;
+      }
+
+      function inputOperator(operator) {
+        screen += operator;
+        document.getElementById("someInput").value = screen;
+      }
+
+      function calculate() { //Function controls what happens when = is pressed
+        screen=eval(screen);
+        console.log(screen);
+        localStorage.setItem('value', JSON.stringify(screen));
+        document.getElementById("someInput").value = screen;
+      }
+
+      function resetScreen() { //clears the calculators memory
+        screen ='';
+        console.log(screen);
+        document.getElementById("someInput").value = screen;
+      }
+      
+      function retrieveAnswer() { //retrieves stored answer from local storage
+        screen += localStorage.getItem('value');
+      }
     </script>
   </body>
 
